@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+</style>
+
+<!--
+For consistency I am trying to run a js file with the same name as
+the html therefore I'm commenting out the myFunctions.js file
+<script src="myJsFunctions.js"></script>
+All javascript will be ran from the whodat.js file
+-->
+<script src="whodat.js"></script>
+<script src="jquery-3.3.1.js"></script>
+
+ </head>
+ 
+ 
+<body>
+
+<a href="index.html">Main Menu</a><br>
+
+
+<p>Who Dat?</p>
+<p>See if you can name your relatives.</p>
+
+
+  <button id="SearchButton" onclick="randomPhoto()">Show Random Photo</button><br><br>
+  <img id="myImg">
+
+<p>Enter First Name or Nick Name</p>
+<input id="myGuessText" type="text" name="guessName"><br>
+
+<p>Then click on My Guess button</p>
+
+    <button id="myGuessButton" onclick="myGuess()">My Guess</button><br>
+	 <script>
+var input = document.getElementById("myGuessText");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("myGuessButton").click();
+  }
+});
+
+</script> 
+  
+
+	
+  <p>Don't know who? Click on Who Dat? button for answer.</p>
+   <button onclick="whoDat()">Who Dat?</button>
+
+ </body>
+</html>
