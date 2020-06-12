@@ -1,3 +1,9 @@
+11 Jun 2020
+Move website from https://thomasfamilytreewva.github.io/
+to https://wasambe.github.io/thomasfamilytree/index.html
+I did this so I can have all of my websites in one location (wasambe)
+
+
 03 Jan 2020
 Good progress on automating myObj/pngFiles.
 After any changes to the sqlDb manually or thru CRUD the following must happen.
