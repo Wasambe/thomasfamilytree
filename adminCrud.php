@@ -53,6 +53,7 @@ $MiddleName = $_POST["MiddleName"];
 $MaidenName = $_POST["MaidenName"];
 $LastName = $_POST["LastName"];
 $NickName = ($_POST['NickName']);
+$FirstNickName=$FirstName. "   ".$NickName;
 $DateOfBirth = ($_POST['DateOfBirth']);
 $PlaceOfBirthCity = ($_POST['PlaceOfBirthCity']);
 $PlaceOfBirthState = ($_POST['PlaceOfBirthState']);
@@ -94,11 +95,11 @@ mysqli_select_db($conn,"id4184148_testdatabase");
 If ($CrudOption == "insert"){
           //sql here
 		  $sql = "INSERT INTO testtable (NodeUID, FirstName, MiddleName, MaidenName,
-		  LastName, NickName, DateOfBirth, PlaceOfBirthCity, PlaceOfBirthState,
+		  LastName, NickName, FirstNickName, DateOfBirth, PlaceOfBirthCity, PlaceOfBirthState,
 		  DateOfDeath, PlaceOfDeathCity, PlaceOfDeathState,
 		  Tel1, Email, City, State, Comments)
 VALUES ('".$NodeUID."', '".$FirstName."', '".$MiddleName."',
-'".$MaidenName."', '".$LastName."', '".$NickName."',
+'".$MaidenName."', '".$LastName."', '".$NickName."', '".$FirstNickName."',
 '".$DateOfBirth."', '".$PlaceOfBirthCity."', '".$PlaceOfBirthState."',
 '".$DateOfDeath."', '".$PlaceOfDeathCity."', '".$PlaceOfDeathState."',
 '".$Tel1."', '".$Email."', '".$City."',
@@ -134,6 +135,7 @@ if ($rowcount == 0){
 	 $MaidenName=$row['MaidenName'];
 	 $LastName=$row['LastName'];
 	 $NickName=$row['NickName'];
+	 $FirstNickName=$FirstName. "   ".$NickName;
 	 $DateOfBirth=$row['DateOfBirth'];
 	 $PlaceOfBirthCity=$row['PlaceOfBirthCity'];
 	 $PlaceOfBirthState=$row['PlaceOfBirthState'];
@@ -167,6 +169,7 @@ $Comments=$row["Comments"];
 	 MiddleName = '".$MiddleName."',
 	 MaidenName = '".$MaidenName."', 
 	 LastName = '".$LastName."', NickName = '".$NickName."',
+	 FirstNickName = '".$FirstNickName."',
 	 DateOfBirth = '".$DateOfBirth."', PlaceOfBirthCity = '".$PlaceOfBirthCity."',
 	 PlaceOfBirthState = '".$PlaceOfBirthState."',
 	 DateOfDeath = '".$DateOfDeath."', PlaceOfDeathCity = '".$PlaceOfDeathCity."',

@@ -720,17 +720,17 @@ tree.getDescendent(93).addChild(TREE.create("Joseph"));
 tree.getDescendent(93).addChild(TREE.create("Cohen"));
 tree.getDescendent(93).addChild(TREE.create("Lillie"));
 tree.getDescendent(93).addChild(TREE.create("Gracie"));
-
+tree.getDescendent(93).addChild(TREE.create("Breelyn"));
 
 //Latosha family
 tree.getDescendent(96).addChild(TREE.create("Kyran"));
 tree.getDescendent(96).addChild(TREE.create("Kaiden"));
 
 //Elwin Jr family
-tree.getDescendent(97).addChild(TREE.create("Child1"));
-tree.getDescendent(97).addChild(TREE.create("Child2"));
-tree.getDescendent(97).addChild(TREE.create("Child3"));
-tree.getDescendent(97).addChild(TREE.create("Child4"));
+tree.getDescendent(97).addChild(TREE.create("Teagan Jr"));
+tree.getDescendent(97).addChild(TREE.create("Taylor"));
+tree.getDescendent(97).addChild(TREE.create("Toryn"));
+tree.getDescendent(97).addChild(TREE.create("Chailyn"));
 
 //Melody family
 tree.getDescendent(100).addChild(TREE.create("Breasha"));
@@ -750,6 +750,8 @@ tree.getDescendent(112).addChild(TREE.create("Cameron"));
 
 //Cedrick (Kim's granddaughter) family
 tree.getDescendent(134).addChild(TREE.create("Kellan"));
+tree.getDescendent(134).addChild(TREE.create("Khalia"));
+
 
 //Ananda (Kim's grandson) family
 tree.getDescendent(135).addChild(TREE.create("Kynlee"));
