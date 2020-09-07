@@ -1,8 +1,21 @@
+
+
+06 Sep 2020
+Still having trouble with myObj after using CRUD. 
+I'm working on solving this issue.
+Must Verify 168 Kellan NodeUID and NodeNumber using getIdAndName()
+NodeUID is from the DB
+NodeNumber is from the FamilyTree
+
+06 Sep 2020
+Changes made to .js files using notepad++ was not being saved 
+in the browser webpages. Solution was to clear the history of
+the Chrome browser for the last hour.
+
 11 Jun 2020
 Move website from https://thomasfamilytreewva.github.io/
 to https://wasambe.github.io/thomasfamilytree/index.html
 I did this so I can have all of my websites in one location (wasambe)
-
 
 03 Jan 2020
 Good progress on automating myObj/pngFiles.

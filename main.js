@@ -1,4 +1,5 @@
 //comment
+//06 Sep 2020
 //11 jan 2019
 var maintree;
 var mwcurrNode;
@@ -32,7 +33,7 @@ var nuidtable="";
 
 //initialize starts here
 function initialize() { 
-		
+	//test	
 	
     canvas = document.getElementById("canvas"),
         context = canvas.getContext("2d"),
@@ -743,17 +744,17 @@ tree.getDescendent(103).addChild(TREE.create("Jaiden"));
 tree.getDescendent(103).addChild(TREE.create("Amiwah"));
 tree.getDescendent(103).addChild(TREE.create("Jayce"));
 
-//Brandon (Danita's Sons) family
+//Brandon (Danita's Son) family
 tree.getDescendent(112).addChild(TREE.create("Angel"));
 tree.getDescendent(112).addChild(TREE.create("Lizzie"));
 tree.getDescendent(112).addChild(TREE.create("Cameron"));
 
-//Cedrick (Kim's granddaughter) family
+//Cedrick (Kim's grandson) family
 tree.getDescendent(134).addChild(TREE.create("Kellan"));
 tree.getDescendent(134).addChild(TREE.create("Khalia"));
 
 
-//Ananda (Kim's grandson) family
+//Ananda (Kim's granddaughter) family
 tree.getDescendent(135).addChild(TREE.create("Kynlee"));
 }
 
@@ -867,7 +868,7 @@ idNameArray = [];
 arrayLen = idNameArray.length;
 arrayLen = idNameArray.length;
 	
-//displays Node Number, Node ID and Name of each member on Family Tree
+//displays Node ID, Node Number and Name of each member on Family Tree
  var results = ""; 
 				var stridname1 = ("");
 				for (var i = 0; i < mwnodes.length; i++) {
@@ -901,7 +902,7 @@ results += "<tr><td colspan=1></td></tr>";
 results += "<table><br /> <br />";
 
  var div = document.getElementById("associatedAssets");
-  //  div.innerHTML = results;    
+    div.innerHTML = results;    
 			}      
 
 
