@@ -1,3 +1,4 @@
+//01 Oct 2020
 //<script>
 //array = JSON.parse(localStorage.getItem("array"));
 //alert(array[1]);
@@ -25,6 +26,8 @@ myArrayRandom = pngFiles;
 		randomNumber=(Math.floor(Math.random() * myArrayLength));
 		var photoname=(myArrayRandom[randomNumber]);
 		var str = photoname;
+
+/*
 	var n = str.length;
 var i = 0;
 var di = "";
@@ -39,6 +42,9 @@ if (ch >= '0' && ch <= '9')
 		fnrn = fnrn + ch;
 		}
 				var repImage = "images/" + fnrn + ".png";
+				*/
+				
+				var repImage = "images/" + photoname;
 //Make sure to use a <img> element with the below code
 	//document.getElementById("myImg").src = "images/15.png";
 	document.getElementById("myImg").src = repImage;
@@ -99,26 +105,50 @@ mgtExitYesNo ="No"}
 
 //<script>
 function myGuessPhoto(){
+
+
+var uri = mgp;
+//Some mgp photo files contain %20 in their name. I think this %20 code
+//represents a space.
+ //These lines clears the %20 in the mgp filename
+  var uri_dec = decodeURIComponent(uri);
+  mgp = uri_dec;
+
+//get filename without path	
+//var name = file.substr(0, file.lastIndexOf('.'));
+var name = mgp.substr(0, mgp.lastIndexOf('.'));
+
+  
+  
 		var str = mgp;
 	var n = str.length;
 var i = 0;
 var di = "";
 var fnrn = "";
 
-for (i = 0; i < n; i++) {
+for (i = 49; i < 55; i++) {
       ch = str.charAt(i);
 		
 		// check if ch is a letter
-//if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))
- 	//str = idvar;
+//if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')){
+ 	//alert("letter");
 //	return;
+//
 
 // check if ch is a digit
-if (ch >= '0' && ch <= '9')
+//if (ch >= '0' && ch <= '9'){
+	//	fnrn = fnrn + ch;
+	//	mgp=fnrn;
+	//	}
+
+
+
+if (ch >= '0' && ch <= '9'){
 		fnrn = fnrn + ch;
-		mgp=fnrn
+		mgp=fnrn;
 		}
 		myGuessArray();
+}
 }
 //</script>
 

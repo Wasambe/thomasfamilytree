@@ -15,6 +15,9 @@ var $idPhp = "";
   var photoname = "";
 
   
+//to refresh page
+//window.location.reload();
+
 
  function GenerateTable() {
         //Build an array containing Customer records.
@@ -219,6 +222,29 @@ document.getElementById("demoloopThruArray").innerHTML = text;
 
 
 function mySearch() {
+	
+//	var myTable = document.getElementById("myTable");
+var myObj = JSON.parse(localStorage["myObj"]);
+//var rowIndex;
+//myObj = JSON.parse(localStorage["myObj"]);
+/*	
+	//07 Sep 2020 added this HTTP Request hoping it will give me an 
+	//updated "myObj" after using CRUD.
+	//start
+	
+ var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    myObj = (this.responseText);
+	localStorage.removeItem("myObj");
+localStorage.setItem("myObj", (myObj));
+    }
+  };
+  xhttp.open("GET", "jsonMyObj.txt", true);
+  xhttp.send();
+//end
+*/	
+
 
 document.getElementById("imageholder").innerHTML= "";
 	
@@ -260,6 +286,7 @@ nuid=myObj[i].NodeUID;
   createTable();
   document.getElementById("myTable").style.visibility = "visible";
   document.getElementById("clickForDetails").style.visibility = "visible";
+  photoname = nuid+fn+mn+man+ln+nn;
    addClickTable();
 
  }
@@ -386,7 +413,7 @@ function rowIndex(){
 
 function showPhoto(){
 	var urlvar = "";
-	urlvar = ("images/" + idvar + ".png");
+	urlvar = ("images/" + photoname + ".png");
 	 var repImage = "<img src=' " + urlvar + " '>";
 	document.getElementById("imageholder").innerHTML= repImage;
 		}
@@ -459,6 +486,10 @@ document.getElementById("myDIV").appendChild(pln);     // Append <p> to <div> wi
 pnn.innerHTML = "Nick Name: " + nn;                // Insert text
 document.getElementById("myDIV").appendChild(pnn);     // Append <p> to <div> with id="myDIV"
 	
+	/*
+	//start discontinued
+	//03 oct 2020 b/c AdminCrud Search button table throws error
+	//because these variables never get defined
 			var ppobc = document.createElement("P");                 // Create a <p> element
 ppobc.innerHTML = "Place Of Birth City: " + pobc;                // Insert text
 document.getElementById("myDIV").appendChild(ppobc);     // Append <p> to <div> with id="myDIV"
@@ -490,6 +521,8 @@ document.getElementById("myDIV").appendChild(ptel1);     // Append <p> to <div> 
 				var pemail = document.createElement("P");                 // Create a <p> element
 pemail.innerHTML = "Email: " + email;                // Insert text
 document.getElementById("myDIV").appendChild(pemail);     // Append <p> to <div> with id="myDIV"
+  //end discontinued
+ */
   }
   
 

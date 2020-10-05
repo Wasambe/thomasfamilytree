@@ -1,11 +1,69 @@
+03 Oct 2020
+Must clear browser history (files) after CrudUpdate
+
+28 Sep 2020
+WIP function updatePhotoName declaring var $oldName so I could use it in another
+function. Must declare as "global $oldName" inside a function. All variables declared
+outside a function are not available inside a function.
+see file phpglobalvariables.php
+
+08 Sep 2020
+function populateDummyData(tree)
+There are 4 groups in the tree
+tree.selected(true);  this group is the head of tree (Chaney)
+tree.addChild(TREE.create("ChildsName")); this group adds 
+                                         children of Chaney (Head of tree)
+tree.getChildAt(3).addChild(TREE.create("ChildsName")); this group adds 
+             grandchildren of Chaney (Head of tree)
+
+tree.getDescendent(15).addChild(TREE.create("ChildsName")); this group adds 
+           great grandchildren and all downstream descendents of Chaney (Head of tree)
+		   
+//getChildAt number is found by counting the 
+//tree.addChild(TREE.create) entries starting at 0		
+
+//tree.getDescendent number is found by counting all entries
+//starting with Chaney as 1
+   
+
+
+08 Sep 2020
+
+uid is assigned by main.js code. It starts with Chaney(1) moves left 
+to right and top to bottom.
+When I add new family member to DB I must assure the NodeUID in the DB
+matches the main.js uid. This newly added member can sometimes
+cause the NodeUID assignments to change in other members. Be careful.
+DB NodeUID is assigned manually by me when I add members to DB in autoincrement 
+field via CRUD. 
+It starts with Chaney(1).
+I now need to add a NodeNumber field to the DB and update it with the
+NodeNumber from main.js
+I also need to add a NodeUID field and update it with the NodeUID
+from main.js
+
+NodeNumber is assigned by main.js code. It starts with Chaney(0) then moves left 
+to right. When it comes to a family member that has children Joe Thomas
+(NodeNumber 13)(NodeID 15) it branches down that members descendants 
+Node Name	NodeNumber	NodeID
+William	    12	          14
+Joe Thomas	13	          15
+Gladys	    14	          17
+Dora	    15	          25
+Bruce Jr	16	          49
+Melody	    17	          100
+Breasha	    18	          161
+Bruce 3rd	19	          101
+Bruce 4th	20	          162
+Damarcus	21	          102
+Cheryl	    22	          50
 
 
 06 Sep 2020
 Still having trouble with myObj after using CRUD. 
 I'm working on solving this issue.
-Must Verify 168 Kellan NodeUID and NodeNumber using getIdAndName()
-NodeUID is from the DB
-NodeNumber is from the FamilyTree
+Seems that after making any CRUD changes to myObj I have to
+clear history of the Chrome browser for the last hour.
 
 06 Sep 2020
 Changes made to .js files using notepad++ was not being saved 

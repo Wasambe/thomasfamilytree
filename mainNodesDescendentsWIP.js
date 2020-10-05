@@ -1,6 +1,6 @@
 //comment
-//10 Sep 2020
-//test
+//06 Sep 2020
+//11 jan 2019
 var maintree;
 var mwcurrNode;
 var mwcurrNodei;
@@ -140,7 +140,7 @@ function initialize() {
 	/**/
 	scrollWin();
 	function scrollWin() {
-    window.scrollTo(6300, 0);
+    window.scrollTo(3300, 0);
 	}
 	
 
@@ -469,8 +469,12 @@ tree.addChild(TREE.create("John"));
 tree.addChild(TREE.create("Mary"));
 tree.addChild(TREE.create("William"));
 tree.addChild(TREE.create("Lucy"));
+tree.addChild(TREE.create("test"));
+
 
 //William Thomas family Grandpa's father
+//getChildAt number is found by counting the 
+//tree.addChild(TREE.create) entries starting at 0
 tree.getChildAt(3).addChild(TREE.create("John"));
 tree.getChildAt(3).addChild(TREE.create("George"));
 tree.getChildAt(3).addChild(TREE.create("Mamie"));
@@ -483,7 +487,10 @@ tree.getChildAt(3).addChild(TREE.create("Joe Thomas"));
 tree.getChildAt(3).addChild(TREE.create("Daniel"));
 
 
-//Grandpa Joe Thomas family  
+//Grandpa Joe Thomas family 
+//tree.getDescendent number is found by counting all entries
+//starting with Chaney as 1
+ 
 tree.getDescendent(15).addChild(TREE.create("Gladys"));
 tree.getDescendent(15).addChild(TREE.create("Lillie"));
 tree.getDescendent(15).addChild(TREE.create("Joseph"));
@@ -903,7 +910,7 @@ results += "<table><br /> <br />";
 
  var div = document.getElementById("associatedAssets");
     div.innerHTML = results;    
-}      
+			}      
 
 
 function ancestors(){
@@ -1089,5 +1096,54 @@ for (var igc = 0; igc < mwcurrNode.children[ic].children.length; igc++) {
 	}
 	/*This Descendants code ends here*/
 	
+
+function NodesMatchUpdate(){
+//This function will iterate the nodes list 
+//get the NodeID and NodeNumber from nodes list
+//match strings from NodesList and DB
+//update the DB row string that matches the nodeslist string
+//with NodeID and NodeNumber
+	
+var idNameArray, text, arrayLen, i;
+idNameArray = [];
+arrayLen = idNameArray.length;
+arrayLen = idNameArray.length;
+	
+//displays Node ID, Node Number and Name of each member on Family Tree
+ var results = ""; 
+				var stridname1 = ("");
+				for (var i = 0; i < mwnodes.length; i++) {
+					var nodeidname = (i);
+					var ididname = (mwnodes[i].uid);
+					var nameidname = (mwnodes[i].text);
+					var stridname = ("ID " + ididname + "   Node Number " + nodeidname + "    Name " + nameidname + "\n");
+							
+					
+					stridname1 = (stridname1 + "\n" + stridname);
+					console.log (stridname1);
+					idNameArray[idNameArray.length] = stridname;
+								
+					}
+				
+				    results = "<table><tr><th>Node ID</th><th>Node Number</th><th>Node Name</th></tr>";
+					
+					
+					
+    
+    
+ 
+					
+					//for (var i=0; i<idNameArray.length; i=i+2) { //###NOTICE THE CHANGE FROM i++ TO     i=i+2               
+                    for (var i=0; i<idNameArray.length; i++) {
+    results += "<tr><td>" + mwnodes[i].uid + "</td><td>" + i + "</td><td>" + mwnodes[i].text + "</td></tr>";  
+   // results += "<td>" + idNameArray[i+1] + "</td></tr>";  
+}
+
+results += "<tr><td colspan=1></td></tr>";
+results += "<table><br /> <br />";
+
+ var div = document.getElementById("associatedAssets");
+    div.innerHTML = results;    
+			}      
 
 	

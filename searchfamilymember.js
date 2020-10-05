@@ -1,4 +1,5 @@
 //comment
+//01 Oct 2020
 var photoname = "";
 
 var strglobal = "";
@@ -270,7 +271,16 @@ myDiv.id=("myDIV");
 			return;
 			}
 			//alert(rowIndex);
+			//29 Sep 2020 Stopped using idvar for photo id
+			//will now use firstname+middlename+maidenname+lastname+nickname
 			idvar = (this.cells[0].innerHTML);
+			firstname = (this.cells[1].innerHTML);
+			middlename = (this.cells[2].innerHTML);
+			maidenname = (this.cells[3].innerHTML);
+			lastname = (this.cells[4].innerHTML);
+			nickname = (this.cells[5].innerHTML);
+			photoname = (idvar+firstname+middlename+maidenname+lastname+nickname);
+			 photoname = photoname.split(" ").join("");
 			showPhoto();
 			showFamilyMemberInfo();
 			 deleteRows();
@@ -302,7 +312,7 @@ function rowIndex(){
 
 function showPhoto(){
 	var urlvar = "";
-	urlvar = ("images/" + idvar + ".png");
+	urlvar = ("images/" + photoname + ".png");
 	 var repImage = "<img src=' " + urlvar + " '>";
 	document.getElementById("imageholder").innerHTML= repImage;
 		}

@@ -1,5 +1,5 @@
 <?php
-//10 Aug 2019
+//03 Oct 2020
 $NodeUIDOK='';
 $CrudOptionOK='';
 $CrudOptionErr='';
@@ -11,6 +11,65 @@ $DateOfBirth= $PlaceOfBirth= $DateOfDeath= $PlaceOfDeath='';
 $PlaceOfBirthCity= $PlaceOfBirthState= $PlaceOfDeathCity= $PlaceOfDeathState='';
 $Tel1= $Tel2= $Email='';
 $StreetAddress= $City= $State= $Comments='';
+//$oldName='';
+
+//07 Sep 2020 Added this function in hopes of updating
+//myObj after CRUD change.
+function myObjUpdate(){
+ 	//000WebHost Settings
+$servername = "localhost";
+$username = "id4184148_localhost";
+$password = "We135711!";
+$dbname = "id4184148_testdatabase";
+
+
+//connect to database
+$conn = @mysqli_connect($servername, $username, $password, $dbname) or die("Couldn't connet to database.");
+
+//echo "Connected successfully";
+
+ $NodeUID = "1";
+ //$sql = "SELECT * FROM testtable WHERE NodeUID = '".$NodeUID."'";
+	$sql = "SELECT * FROM testtable";
+	$result = mysqli_query($conn,$sql);
+	
+	$rowcount = mysqli_num_rows($result);
+
+ if(!$result){ echo "Couldn't execute the query"; die();}
+else{
+ //creates an empty array to hold data
+ $data = array();
+  while($row = mysqli_fetch_assoc($result)){
+    $data[]=$row;
+	  }
+}
+
+$myObj = json_encode($data);
+//echo $myObj;
+
+
+
+// PHP program to delete a file named gfg.txt  
+// using unlink() function  
+   
+$file_pointer = "jsonMyObj.txt";  
+   
+// Use unlink() function to delete a file  
+if (!unlink($file_pointer)) {  
+    echo ("$file_pointer cannot be deleted due to an error");  
+}  
+else {  
+    echo ("$file_pointer has been deleted");  
+}  
+ 
+$myfile = fopen("jsonMyObj.txt", "w") or die("Unable to open file!");
+$txt = $myObj;
+fwrite($myfile, $txt);
+fclose($myfile);
+	
+}
+
+myObjUpdate();
 
 //$CrudOption = ($_POST['CrudOption']);
 //echo $CrudOption;
@@ -92,6 +151,9 @@ echo ($connYesNo);
 mysqli_select_db($conn,"id4184148_testdatabase");
 
 
+getOldName();
+
+
 If ($CrudOption == "insert"){
           //sql here
 		  $sql = "INSERT INTO testtable (NodeUID, FirstName, MiddleName, MaidenName,
@@ -159,11 +221,15 @@ $Comments=$row["Comments"];
    echo ("This is end of SQL Select");
    mysqli_close($conn);
 }elseif ($CrudOption == "update"){
+	
 	 //sql here
-	 
+	 	 
 	 echo ("This is elseif update");
+	 echo ($oldName);
 	 echo ($NodeUID. "   ".$FirstName. "   ".$MiddleName. "   ".$MaidenName. "   
 	  ".$LastName. "   ".$NickName." ".$DateOfBirth." ".$PlaceOfBirthCity);
+	  
+	  
 	  
 	 $sql="UPDATE testtable SET FirstName = '".$FirstName."', 
 	 MiddleName = '".$MiddleName."',
@@ -182,16 +248,138 @@ $Comments=$row["Comments"];
 $result = mysqli_query($conn,$sql);
 echo ("This is end of SQL Update");
    mysqli_close($conn);
+   
+  global $newName; 
+  $newName = ($NodeUID.$FirstName.$MiddleName.$MaidenName.$LastName.$NickName);
+  $newName = str_replace(' ', '', $newName);
+  updatePhotoName();
 }
 
 }
+
+
+function getOldName(){
+	  //start function getOldName
+	  //This function gets the Name of person before the update takes place.
+	  //$oldName = ($FirstNameOld.$MiddleNameOld.$MaidenNameOld.$LastNameOld.$NickNameOld);
+	 	  //I'm thinking to use the var $oldName as part of function updatePhotoName
+global $oldName;	 
+	 echo ("Start getOldName");
+	  $NodeUID = ($_POST['NodeUID']);
+	  $servername = "localhost";
+$username = "id4184148_localhost";
+$password = "We135711!";
+$dbname = "id4184148_testdatabase";
+
+
+//connect to database
+$conn = @mysqli_connect($servername, $username, $password, $dbname) or die("Couldn't connet to database.");
+
+	   $sql = "SELECT * FROM testtable WHERE NodeUID = '".$NodeUID."'";
+	$result = mysqli_query($conn,$sql);
+	
+$rowcount = mysqli_num_rows($result);
+echo ("Row Count " .$rowcount);
+if ($rowcount == 0){
+	echo ("This NodeUID not found");
+	$NodeUID="";
+	}
+	
+	
+	while ($row = mysqli_fetch_array($result)){   
+	 $NodeUID=$row['NodeUID'];
+	 $FirstNameOld=$row['FirstName'];
+	 $MiddleNameOld=$row['MiddleName'];
+	 $MaidenNameOld=$row['MaidenName'];
+	 $LastNameOld=$row['LastName'];
+	 $NickNameOld=$row['NickName'];
+	 
+	
+	// echo ($NodeUID. "   ".$FirstName. "   ".$MiddleName. "   ".$MaidenName. "   ".$LastName. "   ".$NickName);
+	 $oldName = ($NodeUID.$FirstNameOld.$MiddleNameOld.$MaidenNameOld.$LastNameOld.$NickNameOld);
+$oldName = str_replace(' ', '', $oldName);	
+	echo $oldName;
+  }
+  
+	
+	
+	 
+  echo ("Old Name is ".$oldName);
+   mysqli_close($conn);
+	echo ("End getOldName");
+//end function getOldName
+
+}
+
+
+function updatePhotoName(){
+echo ("This is function updatePhotoName");
+//echo  $GLOBALS['oldName'];
+//echo  $GLOBALS['newName'];
+$oldName = $GLOBALS['oldName'];
+$newName = $GLOBALS['newName'];
+echo ("Old Name is ".$oldName);
+echo ("New Name is ".$newName);
+//rename("images","pictures");
+//rename("/test/file1.txt","/home/docs/my_file.txt");
+//rename("images/test2.txt","images/test1.txt");
+//rename("images/1.png","images/chaney.png");
+//$newName = "Chaney.png";
+//$newName = "Chaney";
+$filetype = ".png";
+$oldName = $oldName.$filetype;
+$newName = $newName.$filetype;
+echo $newName;
+if (file_exists($oldName)){
+rename("images/".$oldName,"images/".$newName);
+}else{
+echo ("File ".$oldName." not found");	
+}
+}
+
 ?>
+
+
+
+
+
 
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="jquery-3.3.1.js"></script>
-<script src="myJsFunctions.js"></script>
+<!--<script src="myJsFunctions.js"></script>-->
+<!--<script src="searchfamilymember.js"></script>-->
+<script src="admincrud.js"></script>
+
+<script>
+ var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    myObj = (this.responseText);
+	localStorage.removeItem("myObj");
+localStorage.setItem("myObj", (myObj));
+    }
+  };
+  xhttp.open("GET", "jsonMyObj.txt", true);
+  xhttp.send();
+</script>
+
+<script>
+ var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    pngFiles = (this.responseText);
+	localStorage.removeItem("pngFiles");
+localStorage.setItem("pngFiles", (pngFiles));
+    }
+  };
+  xhttp.open("GET", "jsonPngFiles.txt", true);
+  xhttp.send();
+</script>
+
+
+
 <style>
 table, th, td {
   border: 1px solid black;
@@ -236,6 +424,7 @@ Enter First Name or Nick Name:<br>
   
   <p id="demo"></p>
   
+  
    <script>
 //document.getElementById("demo").innerHTML=myObj;
 </script>
@@ -269,9 +458,7 @@ input.addEventListener("keyup", function(event) {
 
   
   <br>
-<div id='imageholder'>
-<p></p>
-</div>
+<img id="myImage" src="" alt="No photo available" style="width:100px">
 
 
 <h2>CRUD</h2>
@@ -313,9 +500,9 @@ input.addEventListener("keyup", function(event) {
 <input  id='nick'  type="text" name="NickName" value="<?php echo $NickName;?>"><br>
 
 
-Date Of Birth: <input type="text" name="DateOfBirth" value="<?php echo $DateOfBirth;?>"><br>
-Place Of BirthCity: <input type="text" name="PlaceOfBirthCity" value="<?php echo $PlaceOfBirthCity;?>"><br>
-Place Of BirthState: <input type="text" name="PlaceOfBirthState" value="<?php echo $PlaceOfBirthState;?>"><br>
+Date Of Birth: <input id='dob' type="text" name="DateOfBirth" value="<?php echo $DateOfBirth;?>"><br>
+Place Of BirthCity: <input id='pobc' type="text" name="PlaceOfBirthCity" value="<?php echo $PlaceOfBirthCity;?>"><br>
+Place Of BirthState: <input id='pobs' type="text" name="PlaceOfBirthState" value="<?php echo $PlaceOfBirthState;?>"><br>
 
 
 Date Of Death: <input type="text" name="DateOfDeath" value="<?php echo $DateOfDeath;?>"><br>

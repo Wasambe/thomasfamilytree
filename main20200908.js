@@ -1,6 +1,6 @@
 //comment
-//10 Sep 2020
-//test
+//06 Sep 2020
+//11 jan 2019
 var maintree;
 var mwcurrNode;
 var mwcurrNodei;
@@ -140,7 +140,7 @@ function initialize() {
 	/**/
 	scrollWin();
 	function scrollWin() {
-    window.scrollTo(6300, 0);
+    window.scrollTo(3300, 0);
 	}
 	
 
@@ -903,7 +903,7 @@ results += "<table><br /> <br />";
 
  var div = document.getElementById("associatedAssets");
     div.innerHTML = results;    
-}      
+			}      
 
 
 function ancestors(){
