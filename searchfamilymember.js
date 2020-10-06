@@ -150,24 +150,42 @@ searchName = searchName.toUpperCase();
 for (i in myObj) {
 nuid=myObj[i].NodeUID;
   fn = myObj[i].FirstName;
-   fn = fn.toUpperCase();
+  // fn = fn.toUpperCase();
     mn=myObj[i].MiddleName;
- mn = mn.toUpperCase();
+ //mn = mn.toUpperCase();
   man=myObj[i].MaidenName;
- man = man.toUpperCase();
+ //man = man.toUpperCase();
  ln=myObj[i].LastName;
- ln = ln.toUpperCase();
+ //ln = ln.toUpperCase();
    nn=myObj[i].NickName;
- nn = nn.toUpperCase();
+ //nn = nn.toUpperCase();
   fnn=myObj[i].FirstNickName;
- fnn = fnn.toUpperCase();
+ //fnn = fnn.toUpperCase();
   city=myObj[i].City;
-  city = city.toUpperCase();
+ // city = city.toUpperCase();
 state=myObj[i].State;
-  state = state.toUpperCase();
+ // state = state.toUpperCase();
+
+//UpperCase var here  
+  fnuc = myObj[i].FirstName;
+   fnuc = fnuc.toUpperCase();
+    mnuc=myObj[i].MiddleName;
+ mnuc = mnuc.toUpperCase();
+  manuc=myObj[i].MaidenName;
+ manuc = manuc.toUpperCase();
+ lnuc=myObj[i].LastName;
+ lnuc = lnuc.toUpperCase();
+   nnuc=myObj[i].NickName;
+ nnuc = nnuc.toUpperCase();
+  fnnuc=myObj[i].FirstNickName;
+ fnnuc = fnnuc.toUpperCase();
+  cityuc=myObj[i].City;
+  cityuc = cityuc.toUpperCase();
+stateuc=myObj[i].State;
+  stateuc = stateuc.toUpperCase();
 
 
- if (fnn.includes(searchName)==true){
+ if (fnnuc.includes(searchName)==true){
 searchNameFoundYesNo="Yes";
   createTable();
   document.getElementById("myTable").style.visibility = "visible";
