@@ -505,18 +505,18 @@ Place Of BirthCity: <input id='pobc' type="text" name="PlaceOfBirthCity" value="
 Place Of BirthState: <input id='pobs' type="text" name="PlaceOfBirthState" value="<?php echo $PlaceOfBirthState;?>"><br>
 
 
-Date Of Death: <input type="text" name="DateOfDeath" value="<?php echo $DateOfDeath;?>"><br>
+Date Of Death: <input id="dod" type="text" name="DateOfDeath" value="<?php echo $DateOfDeath;?>"><br>
 Place Of DeathCity: <input type="text" name="PlaceOfDeathCity" value="<?php echo $PlaceOfDeathCity;?>"><br>
 Place Of DeathState: <input type="text" name="PlaceOfDeathState" value="<?php echo $PlaceOfDeathState;?>"><br>
 
 
-Tel1: <input type="text" name="Tel1" value="<?php echo $Tel1;?>"><br>
+Tel1: <input id="tel1" type="text" name="Tel1" value="<?php echo $Tel1;?>"><br>
 <!--Tel2: <input type="text" name="Tel2" value="<?php echo $Tel2;?>"><br>-->
-Email: <input type="text" name="Email" value="<?php echo $Email;?>"><br>
+Email: <input id="email" type="text" name="Email" value="<?php echo $Email;?>"><br>
 <!--Street Address: <input type="text" name="StreetAddress" value="<?php echo $StreetAddress;?>"><br>-->
-City: <input type="text" name="City" value="<?php echo $City;?>"><br>
-State: <input type="text" name="State" value="<?php echo $State;?>"><br>
-Comments: <input type="text" name="Comments" value="<?php echo $Comments;?>"><br>
+City: <input id="city" type="text" name="City" value="<?php echo $City;?>"><br>
+State: <input id="state" type="text" name="State" value="<?php echo $State;?>"><br>
+Comments: <input id="comments" type="text" name="Comments" value="<?php echo $Comments;?>"><br>
 
 
 <span class="error"> <?php echo $NodeUIDErr;?></span>

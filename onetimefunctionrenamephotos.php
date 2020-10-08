@@ -94,7 +94,7 @@ $Comments=$row["Comments"];
 //echo $newname; // Outputs: Thisisasimplepieceoftext.
 	 
 	 echo ($oldname."   ".$newname);
-	// echo "<br>";
+	 echo "<br>";
 	rename("images/".$oldname,"images/".$newname);
   }
 
