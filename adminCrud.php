@@ -6,7 +6,7 @@ $CrudOptionErr='';
 $NodeUIDErr='';
 $CrudOption='';
 $NodeUID='';
-$FirstName= $MiddleName= $MaidenName= $LastName= $NickName='';
+$FirstName= $MiddleName= $MaidenName= $LastName= $NickName= $FirstNickName='';
 $DateOfBirth= $PlaceOfBirth= $DateOfDeath= $PlaceOfDeath='';
 $PlaceOfBirthCity= $PlaceOfBirthState= $PlaceOfDeathCity= $PlaceOfDeathState='';
 $Tel1= $Tel2= $Email='';
@@ -112,7 +112,7 @@ $MiddleName = $_POST["MiddleName"];
 $MaidenName = $_POST["MaidenName"];
 $LastName = $_POST["LastName"];
 $NickName = ($_POST['NickName']);
-$FirstNickName=$FirstName. "   ".$NickName;
+$FirstNickName=$FirstName.$NickName;
 $DateOfBirth = ($_POST['DateOfBirth']);
 $PlaceOfBirthCity = ($_POST['PlaceOfBirthCity']);
 $PlaceOfBirthState = ($_POST['PlaceOfBirthState']);
@@ -227,7 +227,7 @@ $Comments=$row["Comments"];
 	 echo ("This is elseif update");
 	 echo ($oldName);
 	 echo ($NodeUID. "   ".$FirstName. "   ".$MiddleName. "   ".$MaidenName. "   
-	  ".$LastName. "   ".$NickName." ".$DateOfBirth." ".$PlaceOfBirthCity);
+	  ".$LastName. "   ".$NickName." ".$FirstNickName." ".$DateOfBirth." ".$PlaceOfBirthCity);
 	  
 	  
 	  
@@ -253,14 +253,14 @@ echo ("This is end of SQL Update");
   $newName = ($NodeUID.$FirstName.$MiddleName.$MaidenName.$LastName.$NickName);
   $newName = str_replace(' ', '', $newName);
   updatePhotoName();
-}
+  }
 
 }
 
 
 function getOldName(){
 	  //start function getOldName
-	  //This function gets the Name of person before the update takes place.
+	  //This function gets the Name and FirstNickName of person before the update takes place.
 	  //$oldName = ($FirstNameOld.$MiddleNameOld.$MaidenNameOld.$LastNameOld.$NickNameOld);
 	 	  //I'm thinking to use the var $oldName as part of function updatePhotoName
 global $oldName;	 
@@ -298,13 +298,17 @@ if ($rowcount == 0){
 	// echo ($NodeUID. "   ".$FirstName. "   ".$MiddleName. "   ".$MaidenName. "   ".$LastName. "   ".$NickName);
 	 $oldName = ($NodeUID.$FirstNameOld.$MiddleNameOld.$MaidenNameOld.$LastNameOld.$NickNameOld);
 $oldName = str_replace(' ', '', $oldName);	
-	echo $oldName;
+//echo $oldName;
+	 $oldFirstNickName = ($FirstNameOld.$NickNameOld);
+$oldFirstNickName = str_replace(' ', '', $oldFirstNickName);	
+	//echo $oldFirstNickName;
   }
   
 	
 	
 	 
   echo ("Old Name is ".$oldName);
+   echo ("Old FirstNickName is ".$oldFirstNickName);
    mysqli_close($conn);
 	echo ("End getOldName");
 //end function getOldName
@@ -329,13 +333,12 @@ echo ("New Name is ".$newName);
 $filetype = ".png";
 $oldName = $oldName.$filetype;
 $newName = $newName.$filetype;
-echo $newName;
-if (file_exists($oldName)){
+//echo $newName;
+if (file_exists("images/".$oldName)){
 rename("images/".$oldName,"images/".$newName);
-}else{
-echo ("File ".$oldName." not found");	
 }
 }
+
 
 ?>
 
