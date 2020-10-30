@@ -1,7 +1,12 @@
-//01 Oct 2020
+//29 Oct 2020
 //<script>
 //array = JSON.parse(localStorage.getItem("array"));
 //alert(array[1]);
+
+var initializeyesnovar = "yes";
+var myArrayRandom = [];
+
+
 
 var pngFiles = JSON.parse(localStorage.getItem("pngFiles"));
 //alert(pngFiles[1]);
@@ -10,46 +15,78 @@ var myObj = JSON.parse(localStorage["myObj"]);
 var myArrayLength;
 		var randomNumber;
 		var fnrn;
+		
+		initializeyesno()
+
+function initializeyesno(){
+	initializeyesnovar = "yes";
+}
+
 //</script>
 
 //<script>
 function randomPhoto(){
+	if (initializeyesnovar == "yes"){
+		//alert(initializeyesnovar);
+		initializeyesnovar = "no"
+	
+	
 //alert("This is function RandomPhoto");
 var ai=0;
-var myArrayRandom = [];
+//var myArrayRandom = [];
 myArrayRandom = pngFiles;
 
      //document.getElementById("arrayContents").innerHTML = myArray;
 //These lines gets var randomNumber based on length of myArray
-//Then it get fnrn which is the filename based on the randomNumber
+//Then it gets fnrn which is the filename based on the randomNumber
 		myArrayLength=(myArrayRandom.length);
 		randomNumber=(Math.floor(Math.random() * myArrayLength));
 		var photoname=(myArrayRandom[randomNumber]);
 		var str = photoname;
 
-/*
-	var n = str.length;
-var i = 0;
-var di = "";
-var fnrn = "";
-
-for (i = 0; i < n; i++) {
-   // text += "The number is " + i + "<br>";
-	    ch = str.charAt(i);
-	
-// check if ch is a digit
-if (ch >= '0' && ch <= '9')
-		fnrn = fnrn + ch;
-		}
-				var repImage = "images/" + fnrn + ".png";
-				*/
 				
 				var repImage = "images/" + photoname;
 //Make sure to use a <img> element with the below code
 	//document.getElementById("myImg").src = "images/15.png";
 	document.getElementById("myImg").src = repImage;
       
+	  
+	  }else{
+		//alert(initializeyesnovar);
+		randomPhotoRepeat();
+	}
   
+}
+
+
+function randomPhotoRepeat(){
+	//alert("This is function randomPhotoRepeat");
+	//myArrayRandom = pngFiles;
+	myArrayLength=(myArrayRandom.length);
+	
+	if (myArrayLength == 0){
+		pngFiles = JSON.parse(localStorage.getItem("pngFiles"));
+	myArrayRandom = pngFiles;
+	myArrayLength=(myArrayRandom.length);
+	}
+		randomNumber=(Math.floor(Math.random() * myArrayLength));
+		var photoname=(myArrayRandom[randomNumber]);
+		var str = photoname;
+				var repImage = "images/" + photoname;
+//Make sure to use a <img> element with the below code
+	//document.getElementById("myImg").src = "images/15.png";
+	document.getElementById("myImg").src = repImage;
+      
+	  //This code will remove photoname from the array
+	//  var fruits = ["Banana", "Orange", "Apple", "Mango"];
+//fruits.splice(0, 1);        // Removes the first element of fruits
+//The first parameter (0) defines the position where new elements should be added (spliced in).
+//The second parameter (1) defines how many elements should be removed.
+//The rest of the parameters are omitted. No new elements will be added.
+	  myArrayRandom.splice(randomNumber, 1);
+	  
+	  
+	  
 }
 //</script>
 
