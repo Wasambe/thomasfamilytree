@@ -1,5 +1,5 @@
 //comment
-//07 Nov 2020
+//01 Nov 2020
 //test
 var maintree;
 var mwcurrNode;
@@ -34,8 +34,6 @@ var nuidtable="";
 //initialize starts here
 function initialize() { 
 	//test	
-	
-	//zzz document.getElementById('id01').style.display='none'
 	
     canvas = document.getElementById("canvas"),
         context = canvas.getContext("2d"),
@@ -72,14 +70,15 @@ function initialize() {
 				mwnodes = nodes;
 	
  
-	//getIdAndName();
+	getIdAndName();
 	//mwTreeData();
 	  descendants();
 				mwfunction();
 				displayFamilyMemberInfoMW();
 				//zzz modalform here
 				//alert ("Modal Form here");
-				showmodalform();
+				//document.getElementById('id01').style.display='block';
+				
 		
 				break;
             }
@@ -858,12 +857,14 @@ mwChildsNamePlus = "";
    
 function displayFamilyMemberInfoMW(){
 	if (mwcurrNode.text == "Chaney"){
-		//alert (displayFamilyMemberInfoMWMessage + "\n \n" + descendantsDisplay);
+		alert (displayFamilyMemberInfoMWMessage + "\n \n" + descendantsDisplay);
 displayFamilyMemberInfoMWMessage = "";
 displayAncestors = "";
 descendantsDisplay = "";
 	}else{
-//alert (displayAncestors  + "\n" + displayFamilyMemberInfoMWMessage + "\n" +  descendantsDisplay);
+alert (displayAncestors  + "\n" + displayFamilyMemberInfoMWMessage + "\n" +  descendantsDisplay);
+//displayFamilyMemberInfoMWMessage = "";
+//displayAncestors = "";
 }
 }
 
@@ -887,7 +888,7 @@ arrayLen = idNameArray.length;
 							
 					
 					stridname1 = (stridname1 + "\n" + stridname);
-					//console.log (stridname1);
+					console.log (stridname1);
 					idNameArray[idNameArray.length] = stridname;
 								
 					}
@@ -1097,47 +1098,5 @@ for (var igc = 0; igc < mwcurrNode.children[ic].children.length; igc++) {
 	}
 	/*This Descendants code ends here*/
 	
-	
-	function showmodalform(){
-		 document.getElementById("simpleModal_8").classList.add('open');
-		 var paraAncestors = document.getElementById("paraAncestors");
-var paraDescendants = document.getElementById("paraDescendants");
-getphotoname();
- // paraAncestorsID.innerHTML = ancestorsvar;
- // paraDescendantsID.innerHTML = descendantsvar;
-  paraAncestors.innerHTML = (displayAncestors);
-  paraDescendants.innerHTML = (displayFamilyMemberInfoMWMessage + "\n" +descendantsDisplay);
- //imgvar = "images/37MichaelJoeWilson.png";
- 
- imgID.src = imgvar;
-	}
-	
-	function getphotoname(){
-myObj = JSON.parse(localStorage["myObj"]);
-		
-		for (i in myObj) {
-//nuid=myObj[i].NodeUID;
-myObjNuid=myObj[i].NodeUID;
-  fn = myObj[i].FirstName  ;
-   fn = fn.toUpperCase();
-    mn=myObj[i].MiddleName;
- mn = mn.toUpperCase();
-  man=myObj[i].MaidenName;
- man = man.toUpperCase();
- ln=myObj[i].LastName;
- ln = ln.toUpperCase();
-   nn=myObj[i].NickName;
- nn = nn.toUpperCase();
- 
- 
-if (myObjNuid==mwcurrNode.uid){
-	 imgvar = (myObjNuid + fn + mn + man + ln + nn + ".png");
-	 imgvar = ("images/" + imgvar);
- imgvar = imgvar.toLowerCase();
- imgvar = imgvar.split(/\s/).join('');
-	 break;
-}
-	}
-	}
 
 	

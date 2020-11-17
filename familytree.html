@@ -1,13 +1,15 @@
 <!doctype html>
 <html>
-<!---17 Jan 2020
+<!-- -->
+<!---08 oct 2020
 Most of the javascript code is located on main.js and tree.js-->
 <!--I commented out this <script src="myJsFunctions.js"></script> 
 I don't think I use this script. Time will tell-->
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>
-</script>
+    <link rel="stylesheet" href="main.css"/>
+<link href="modal.css" rel="stylesheet">
+
 <script src="tree.js"></script>
 <script src="main.js"></script>
 
@@ -16,14 +18,78 @@ body {
     background-color: gold;
 }
 </style>
-    <link rel="stylesheet" href="main.css"/>
+
+
+<style>
+<!-- The Modal 2 (background) -->
+width:1200px
+  height:1200px; <!-- Full height -->
+  overflow: auto; <!-- Enable scroll if needed -->
+ <!-- 
+ background-color: rgb(0,0,0); <!-- Fallback color -->
+  background-color: rgba(0,0,0,0.1); <!-- Black w/ opacity -->
+  
+  top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+	}
+
+
+<!-- The Close 2 Button -->
+.close2 {
+  color: red;
+  float: right;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+
+.close2:hover,
+.close2:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+  }
+  
+
+#closebutton:hover,
+#closebutton;focus{
+color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#imgID {
+  width: 20%;
+  border-radius: 50%;
+  align-self: center;
+}
+
+#divform {
+background-color: white;
+}
+</style>
+
+<style>
+        button { padding: 15px; font-size: 12px; background: indianred; color: #FFF; border: none }
+        .subheading { font-style: italic }
+    </style>
+
+
 </head>
 <body onload="initialize()">
-<!-- -->
+
 <div class="sticky">
 <div id="divstyle">
 <div id="header">
+
+
+
+
+
 <a href="index.html">Main Menu</a><br>
+
 <!--
 <p>Use scroll bars to move tree up/down left/right.</p>
 <p>Click on family member name to see details.</p>
@@ -32,6 +98,7 @@ Enter First Name or Nick Name:<br>
   <input id="searchName" type="text"><br>
   <button id="searchButton">Search</button>
  
+
 
 </div>
 </div>
@@ -67,6 +134,77 @@ Enter First Name or Nick Name:<br>
 
 <?php include 'myPhpFunctions.php';?>
 
+
+<!--script for modal 2-->
+<script>
+/**
+ * Author: Fatima Aurelia
+ * Date: 01/22/2017
+ * Version: 1.0
+ */
+
+document.addEventListener('click', function (e) {
+    e = e || window.event;
+    var target = e.target || e.srcElement;
+
+    if (target.hasAttribute('data-toggle') && target.getAttribute('data-toggle') == 'modal') {
+        if (target.hasAttribute('data-target')) {
+            var m_ID = target.getAttribute('data-target');
+            document.getElementById(m_ID).classList.add('open');
+            e.preventDefault();
+        }
+    }
+
+    // Close modal window with 'data-dismiss' attribute or when the backdrop is clicked
+    if ((target.hasAttribute('data-dismiss') && target.getAttribute('data-dismiss') == 'modal') || target.classList.contains('modal')) {
+        var modal = document.querySelector('[class="modal open"]');
+        modal.classList.remove('open');
+        e.preventDefault();
+    }
+}, false);
+
+
+
+
+// Get the modal
+var modal2 = document.getElementById("myModal2");
+
+// Get the button that opens the modal
+var btn2 = document.getElementById("myBtn2");
+
+// Get the <span> element that closes the modal
+var span2 = document.getElementsByClassName("close2")[0];
+
+
+
+
+//var paraAncestors = document.getElementById("paraAncestors");
+//var paraDescendants = document.getElementById("paraDescendants");
+
+
+</script>
+
+<div id="simpleModal_8" class="modal">
+    <div class="modal-window">
+        <button data-dismiss="modal">Close</button>
+<br>
+    <div id="divimg" class="imgcontainer">
+         <img id="imgID"/>
+	</div>
+<br>
+    <div id="divcontaingner" class="container">
+      <label for="ancestors"><b>Ancestors</b></label>
+	 <p id="paraAncestors"></p> 
+		<br>
+
+      <label for="descendants"><b>Descendants</b></label>
+	 <p id="paraDescendants"></p> 
+		<br>
+
+          </div>
+    </div>
+</div>
+          
 
 </body>
 </html>

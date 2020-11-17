@@ -1,3 +1,8 @@
+08 Oct 2020
+Problem: Some HTML files not showing in Chrome Developer "Sources" tab.
+Solution: Open "Network" tab - right click on missing file - select "Open
+in Sources Panel".
+
 03 Oct 2020
 Must clear browser history (files) after CrudUpdate
 
