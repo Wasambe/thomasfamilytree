@@ -238,7 +238,7 @@ myObjNuid=myObj[i].NodeUID;
 	 nuid = nodes[i].uid;
 if (myObjNuid==nuid){
 	//alert(myObjNuid + " " + fnn + " " + ln + " " + city + " " + state);
-		alert(fnn + " " + ln + " " + city + " " + state);
+		alert(fn + " " + ln + " " + nn + " " + city + " " + state);
 	nodes[i].setbgColor("red");
 	//alert(nodes[i].xPos + " " +  nodes[i].yPos);
 	//window.scrollTo(nodes[i].xPos/2, nodes[i].yPos/2);

@@ -48,3 +48,9 @@
 .open {
     display: block;
 }
+
+#imgID {
+  width: 20%;
+  border-radius: 50%;
+  align-self: center;
+}
