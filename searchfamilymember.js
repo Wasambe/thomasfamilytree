@@ -298,6 +298,7 @@ myDiv.id=("myDIV");
 			lastname = (this.cells[4].innerHTML);
 			nickname = (this.cells[5].innerHTML);
 			photoname = (idvar+firstname+middlename+maidenname+lastname+nickname);
+			photoname = photoname.toLowerCase();
 			 photoname = photoname.split(" ").join("");
 			showPhoto();
 			showFamilyMemberInfo();
