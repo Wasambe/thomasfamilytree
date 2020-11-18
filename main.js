@@ -1103,11 +1103,8 @@ for (var igc = 0; igc < mwcurrNode.children[ic].children.length; igc++) {
 		 var paraAncestors = document.getElementById("paraAncestors");
 var paraDescendants = document.getElementById("paraDescendants");
 getphotoname();
- // paraAncestorsID.innerHTML = ancestorsvar;
- // paraDescendantsID.innerHTML = descendantsvar;
   paraAncestors.innerHTML = (displayAncestors);
   paraDescendants.innerHTML = (displayFamilyMemberInfoMWMessage + "\n" +descendantsDisplay);
- //imgvar = "images/37MichaelJoeWilson.png";
  
  imgID.src = imgvar;
 	}
