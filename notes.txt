@@ -1,3 +1,12 @@
+18 Nov 2020
+Problem: After successfully uploading html/js pages from my computer to my Github 
+repository (https://github.com/) the changes were not reflected at the published 
+(https://wasambe.github.io/thomasfamilytree) website.
+Attempted to clear the cache biy 24hours then 7days to no avail.
+Solution: Opened, reloaded, refreshed 
+(https://wasambe.github.io/thomasfamilytree/index.html)
+This is an ongoing problem and I still haven't found a permanent solution.
+
 08 Oct 2020
 Problem: Some HTML files not showing in Chrome Developer "Sources" tab.
 Solution: Open "Network" tab - right click on missing file - select "Open
