@@ -1,14 +1,14 @@
 .modal {
     position: fixed;
-/*   
-   top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-	*/
-	top: 0%;
+	height: 400px;
+width: 200;
+	top: 50%;
     left: 0%;
-	width: 25%;
+	margin-top: -200px;
+  margin-left: -0px;
+	
+	
+	
     display: none;
     overflow: auto;
     background-color: #FFFFFF;
