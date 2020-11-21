@@ -77,8 +77,6 @@ function initialize() {
 	  descendants();
 				mwfunction();
 				displayFamilyMemberInfoMW();
-				//zzz modalform here
-				//alert ("Modal Form here");
 				showmodalform();
 		
 				break;
@@ -147,8 +145,25 @@ function initialize() {
 	scrollWin();
 	function scrollWin() {
     window.scrollTo(6300, 0);
-	}
 	
+	initializechaney();
+	}
+function initializechaney(){
+		window.scrollTo(nodes[0].xPos, nodes[0].yPos);
+// TREE.draw(context, tree);
+var nodePosx = (nodes[0].xPos);
+var nodePosy = (nodes[0].yPos);
+
+var screenHeight=screen.height;
+var screenWidth=screen.width;
+
+screenHeight = screenHeight/-3;
+screenWidth = screenWidth/-4;
+
+window.scrollBy(0, screenHeight);
+window.scrollBy(screenWidth, 0);
+
+	}	
 
 
 	 
@@ -449,6 +464,7 @@ window.scrollBy(screenWidth, 0);
 }
 });
 //onClick listener for searchButton ends here
+
 
 }
 //initialize ends here
@@ -859,9 +875,14 @@ mwChildsNamePlus = "";
 function displayFamilyMemberInfoMW(){
 	if (mwcurrNode.text == "Chaney"){
 		//alert (displayFamilyMemberInfoMWMessage + "\n \n" + descendantsDisplay);
-displayFamilyMemberInfoMWMessage = "";
-displayAncestors = "";
-descendantsDisplay = "";
+displayFamilyMemberInfoMWMessage = "Chaney had 5 children";
+
+displayAncestors = "Family member's name is Chaney" + "\n" 
++ "Chaney is the Matriarch of the Thomas Family" + "\n"
++ "Her father's name is Pleas Strain" + "\n" +
++ "Her mother's name is Fannie Strain";
+descendantsDisplay = "Sally, John, Mary, William, Lucy" + "\n"
++ "William is the father of Joe Thomas";
 	}else{
 //alert (displayAncestors  + "\n" + displayFamilyMemberInfoMWMessage + "\n" +  descendantsDisplay);
 }
@@ -1136,5 +1157,7 @@ if (myObjNuid==mwcurrNode.uid){
 }
 	}
 	}
+	
+	
 
 	
