@@ -9,6 +9,10 @@ var countOfLiving=0;
 	  var countOfDead=0;
 	  var countOfLivingPlusDead=0;
 	  var ci;
+	  var fnOldest;
+	  var lnOldest;
+	  var nuidOldestYoungest;
+	  var displayOldestYoungest;
 	
 
 function allInfoDataTable(){
@@ -887,6 +891,7 @@ if(dobDays<dobYoungestDays){
 	dobYoungest = dob;
 	fnYoungest=fn;
 	lnYoungest =ln;
+	nuidOldestYoungest=nuid;
 	console.log("The Youngest living family member is " + fnYoungest+  " " + lnYoungest + ". Born " + dobYoungest);
 	console.log(fnYoungest+  " is " + years + " years " + months + " months " + days + " days old.");
 	
@@ -897,9 +902,18 @@ if(dobDays<dobYoungestDays){
 }
 }
 
+/*
+this alert is now displayed using the modal popup
 alert("The youngest living family member is " + fnYoungest + " " + lnYoungest  + "\n" 
 +fnYoungest+ " was born " + dobYoungest + "\n"
  +fnYoungest+  " is " + years + " years " + months + " months " + days + " days old.");
+*/
+
+displayOldestYoungest=("The youngest living family member is " + fnYoungest + " " + lnYoungest  + "\n" 
++fnYoungest+ " was born " + dobYoungest + "\n"
+ +fnYoungest+  " is " + years + " years " + months + " months " + days + " days old.");
+
+showmodalform();
 }
 
 
@@ -907,7 +921,7 @@ function oldestLivingFamilyMember(){
 	var dobOldest=moment().startOf('day');
 	var given="";
 	var current="";
-	var fnOldest="";
+	//var fnOldest="";
 for (i in myObj) {
 nuid=myObj[i].NodeUID;
   fn = myObj[i].FirstName  ;
@@ -958,6 +972,7 @@ agedaysmonthsyears();
 	dobOldest = dob;
 	fnOldest=fn;
 	lnOldest =ln;
+	nuidOldestYoungest=nuid;
 	console.log("The oldest living family member is " + fnOldest+  " " + lnOldest + ". Born " + dobOldest);
 	console.log(fnOldest+  " is " + years + " years " + months + " months " + days + " days old.");
 	
@@ -970,11 +985,17 @@ agedaysmonthsyears();
 }
 //alert("The oldest living family member is " + fnOldest + " " + lnOldest + ". Born " + dobOldest);
 
-
+/*
+This alert is now displayed using the modal popup
 alert("The oldest living family member is " + fnOldest + " " + lnOldest  + "\n" 
 +fnOldest+ " was born " + dobOldest + "\n"
  +fnOldest+  " is " + years + " years " + months + " months " + days + " days old.");
+*/
+displayOldestYoungest = ("The oldest living family member is " + fnOldest + " " + lnOldest  + "\n" 
++fnOldest+ " was born " + dobOldest + "\n"
+ +fnOldest+  " is " + years + " years " + months + " months " + days + " days old.");
 
+showmodalform();
 }
   
 
@@ -1378,3 +1399,41 @@ countOfLivingPlusDead = countOfLiving+ countOfDead;
 
 }
 
+	function showmodalform(){
+		
+		 document.getElementById("simpleModal_8").classList.add('open');
+		 var paraOldestYoungest = document.getElementById("paraOldestYoungest");
+getphotoname();
+  paraOldestYoungest.innerHTML = (displayOldestYoungest);
+  
+ imgID.src = imgvar;
+ imgID.setAttribute("alt", "No Photo Available");
+	}
+	
+	function getphotoname(){
+myObj = JSON.parse(localStorage["myObj"]);
+		
+		for (i in myObj) {
+//nuid=myObj[i].NodeUID;
+myObjNuid=myObj[i].NodeUID;
+  fn = myObj[i].FirstName  ;
+   fn = fn.toUpperCase();
+    mn=myObj[i].MiddleName;
+ mn = mn.toUpperCase();
+  man=myObj[i].MaidenName;
+ man = man.toUpperCase();
+ ln=myObj[i].LastName;
+ ln = ln.toUpperCase();
+   nn=myObj[i].NickName;
+ nn = nn.toUpperCase();
+ 
+ 
+if (myObjNuid==nuidOldestYoungest){
+	 imgvar = (myObjNuid + fn + mn + man + ln + nn + ".png");
+	 imgvar = ("images/" + imgvar);
+ imgvar = imgvar.toLowerCase();
+ imgvar = imgvar.split(/\s/).join('');
+	 break;
+}
+	}
+	}

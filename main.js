@@ -1128,6 +1128,7 @@ getphotoname();
   paraDescendants.innerHTML = (displayFamilyMemberInfoMWMessage + "\n" +descendantsDisplay);
  
  imgID.src = imgvar;
+  imgID.setAttribute("alt", "No Photo Available");
 	}
 	
 	function getphotoname(){

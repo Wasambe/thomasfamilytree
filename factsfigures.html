@@ -3,106 +3,13 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="modal.css" rel="stylesheet">
 <script src="jquery-3.3.1.js"></script>
 <script src="moment.js"></script>
 <script src="moment.min.js"></script>
 <script src="moment-precise-range.js"></script>
 <script src="factsfigures.js"></script>
 
-<!--
-<script>
-
-//dateDiff(dt1, dt2);
-var dt1 = new Date(1949, 09, 04);
-var dt2 = new Date();
-dateDiff(dt1, dt2);
-
-/*
- * Function to calculate the absolute difference in days, months and years between 2 days taking into account variable month lengths and leap years
- * It ignores any time component (ie hours, minutes and seconds)
- *
- */
-function dateDiff(dt1, dt2){
-    /*
-     * setup 'empty' return object
-     */
-    var ret = {days:0, months:0, years:0};
-
-    /*
-     * If the dates are equal, return the 'empty' object
-     */
-    if (dt1 == dt2) return ret;
-
-    /*
-     * ensure dt2 > dt1
-     */
-    if (dt1 > dt2)
-    {
-        var dtmp = dt2;
-        dt2 = dt1;
-        dt1 = dtmp;
-    }
-
-    /*
-     * First get the number of full years
-     */
-
-    var year1 = dt1.getFullYear();
-    var year2 = dt2.getFullYear();
-
-    var month1 = dt1.getMonth();
-    var month2 = dt2.getMonth();
-
-    var day1 = dt1.getDate();
-    var day2 = dt2.getDate();
-
-    /*
-     * Set initial values bearing in mind the months or days may be negative
-     */
-
-    ret['years'] = year2 - year1;
-    ret['months'] = month2 - month1;
-    ret['days'] = day2 - day1;
-
-    /*
-     * Now we deal with the negatives
-     */
-
-    /*
-     * First if the day difference is negative
-     * eg dt2 = 13 oct, dt1 = 25 sept
-     */
-    if (ret['days'] < 0)
-    {
-        /*
-         * Use temporary dates to get the number of days remaining in the month
-         */
-        var dtmp1 = new Date(dt1.getFullYear(), dt1.getMonth() + 1, 1, 0, 0, -1);
-
-        var numDays = dtmp1.getDate();
-
-        ret['months'] -= 1;
-        ret['days'] += numDays;
-
-    }
-
-    /*
-     * Now if the month difference is negative
-     */
-    if (ret['months'] < 0)
-    {
-        ret['months'] += 12;
-        ret['years'] -= 1;
-    }
-console.log("Member is " + ret);
-    return ret;
-	
-	
-}
- 
-
-</script>
--->
 
 <style>
 table, th, td {
@@ -118,21 +25,75 @@ table, th, td {
 }
 </style>
 
+
+
  </head>
  
 <body>
 
 <a href="index.html">Main Menu</a><br><br>
-<!--
-<p id="distinctStates"></p>  
-<p id="distinctCities"></p> 
---> 
 
  <button id="aIDT" onclick="allInfoDataTable()">All Info Data Table</button><br><br>
  <button id="wlw" onclick="wholiveswhere()">List of Thomases by City State</button><br><br>
   <!--<button id="p" onclick="population()">Count of Thomases by City State</button><br><br>-->
   <button id="yLFM" onclick="youngestLivingFamilyMember()">Youngest Living Thomas Member?</button><br><br>
   <button id="oLFM" onclick="oldestLivingFamilyMember()">Oldest Living Thomas Member?</button><br><br>
+
+<script>
+/**
+ * Author: Fatima Aurelia
+ * Date: 01/22/2017
+ * Version: 1.0
+ */
+
+document.addEventListener('click', function (e) {
+    e = e || window.event;
+    var target = e.target || e.srcElement;
+
+    if (target.hasAttribute('data-toggle') && target.getAttribute('data-toggle') == 'modal') {
+        if (target.hasAttribute('data-target')) {
+            var m_ID = target.getAttribute('data-target');
+            document.getElementById(m_ID).classList.add('open');
+            e.preventDefault();
+        }
+    }
+
+    // Close modal window with 'data-dismiss' attribute or when the backdrop is clicked
+    if ((target.hasAttribute('data-dismiss') && target.getAttribute('data-dismiss') == 'modal') || target.classList.contains('modal')) {
+        var modal = document.querySelector('[class="modal open"]');
+        modal.classList.remove('open');
+        e.preventDefault();
+    }
+}, false);
+
+
+
+
+
+</script>
+
+<div id="simpleModal_8" class="modal">
+    <div class="modal-window">
+        <button data-dismiss="modal">Close</button>
+<br>
+    <div id="divimg" class="imgcontainer">
+         <img id="imgID"/>
+	</div>
+<br>
+    <div id="divcontaingner" class="container">
+    <!--  <label for="ancestors"><b>Ancestors</b></label>-->
+	 <pre id="paraOldestYoungest" class="prep"></pre> 
+		<br>
+
+     <!-- <label for="descendants"><b>Descendants</b></label>
+	 <pre id="paraDescendants"></pre> 
+	 -->
+		<br>
+
+          </div>
+    </div>
+</div>
+
 
  </body>
 </html>

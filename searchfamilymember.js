@@ -334,6 +334,8 @@ function showPhoto(){
 	urlvar = ("images/" + photoname + ".png");
 	 var repImage = "<img src=' " + urlvar + " '>";
 	document.getElementById("imageholder").innerHTML= repImage;
+	imgID = document.getElementById("imageholder");
+	 imgID.setAttribute("alt", "No Photo Available");
 		}
 		
 		function deleteRows(){
