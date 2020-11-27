@@ -529,7 +529,7 @@ tree.getDescendent(18).addChild(TREE.create("Wyatt"));
 tree.getDescendent(18).addChild(TREE.create("Kay"));
 tree.getDescendent(18).addChild(TREE.create("Constance"));
 tree.getDescendent(18).addChild(TREE.create("Angela"));
-tree.getDescendent(18).addChild(TREE.create("Sabirina"));
+tree.getDescendent(18).addChild(TREE.create("Sabrina"));
 tree.getDescendent(18).addChild(TREE.create("Sheila"));
 tree.getDescendent(18).addChild(TREE.create("Richard"));
 
@@ -592,7 +592,7 @@ tree.getDescendent(31).addChild(TREE.create("Carl"));
 //Sabrina Lulu family
 tree.getDescendent(32).addChild(TREE.create("Wayneman"));
 tree.getDescendent(32).addChild(TREE.create("Richard"));
-tree.getDescendent(32).addChild(TREE.create("Monica"));
+tree.getDescendent(32).addChild(TREE.create("Tameka"));
 tree.getDescendent(32).addChild(TREE.create("Tamara"));
 
 //Sheila Tbaby family
@@ -782,6 +782,20 @@ tree.getDescendent(134).addChild(TREE.create("Khalia"));
 
 //Ananda (Kim's granddaughter) family
 tree.getDescendent(135).addChild(TREE.create("Kynlee"));
+
+//Wayneman (Sabrina Lulu's son) family
+tree.getDescendent(69).addChild(TREE.create("Cameron"));
+
+//Richard (Sabrina Lulu's son family
+tree.getDescendent(70).addChild(TREE.create("Alexis"));
+tree.getDescendent(70).addChild(TREE.create("Leila"));
+
+//Tamara (Sabrina Lulu's daughter) family
+tree.getDescendent(72).addChild(TREE.create("Tyshaun"));
+tree.getDescendent(72).addChild(TREE.create("Miracle"));
+tree.getDescendent(72).addChild(TREE.create("Journey"));
+
+
 }
 
 
