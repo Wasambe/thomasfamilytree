@@ -771,9 +771,11 @@ tree.getDescendent(103).addChild(TREE.create("Amiwah"));
 tree.getDescendent(103).addChild(TREE.create("Jayce"));
 
 //Brandon (Danita's Son) family
-tree.getDescendent(112).addChild(TREE.create("Angel"));
-tree.getDescendent(112).addChild(TREE.create("Lizzie"));
-tree.getDescendent(112).addChild(TREE.create("Cameron"));
+tree.getDescendent(112).addChild(TREE.create("Heavenly"));
+tree.getDescendent(112).addChild(TREE.create("CamRyn"));
+tree.getDescendent(112).addChild(TREE.create("Elizabeth"));
+
+
 
 //Cedrick (Kim's grandson) family
 tree.getDescendent(134).addChild(TREE.create("Kellan"));
@@ -795,7 +797,8 @@ tree.getDescendent(72).addChild(TREE.create("Tyshaun"));
 tree.getDescendent(72).addChild(TREE.create("Miracle"));
 tree.getDescendent(72).addChild(TREE.create("Journey"));
 
-
+//Brandon Hodge daughter
+tree.getDescendent(112).addChild(TREE.create("Eliyanni"));
 }
 
 

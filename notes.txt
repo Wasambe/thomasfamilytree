@@ -1,3 +1,10 @@
+02 Dec 2020
+Refresh page after CRUD update seems to help update data to other pages
+Add family member to end of function populatedummydata seems to help keep UID/NUID
+in proper order.
+I must improve on both of these issues.
+
+
 18 Nov 2020
 Problem: After successfully uploading html/js pages from my computer to my Github 
 repository (https://github.com/) the changes were not reflected at the published 
