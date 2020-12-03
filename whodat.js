@@ -7,9 +7,26 @@ var initializeyesnovar = "yes";
 var myArrayRandom = [];
 
 
+//Ori here
+//var pngFiles = JSON.parse(localStorage.getItem("pngFiles"));
 
-var pngFiles = JSON.parse(localStorage.getItem("pngFiles"));
-//alert(pngFiles[1]);
+//03 Dec 2020
+//pngFiles is now set in this HttpRequest
+//I hope this improves the new photos being recognized after updating
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+	  pngFiles = JSON.parse(this.responseText);
+   // var myObj = JSON.parse(this.responseText);
+   // document.getElementById("demo").innerHTML = myObj.name;
+  }
+};
+//xmlhttp.open("GET", "json_demo.txt", true);
+xmlhttp.open("GET", "jsonPngFiles.txt", true);
+xmlhttp.send();
+
+
+
 
 var myObj = JSON.parse(localStorage["myObj"]);
 var myArrayLength;
@@ -34,6 +51,7 @@ function randomPhoto(){
 //alert("This is function RandomPhoto");
 var ai=0;
 //var myArrayRandom = [];
+
 myArrayRandom = pngFiles;
 
      //document.getElementById("arrayContents").innerHTML = myArray;
