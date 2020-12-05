@@ -705,7 +705,7 @@ tree.getDescendent(75).addChild(TREE.create("Daysha"));
 tree.getDescendent(75).addChild(TREE.create("Benjamin 3rd"));
 
 //Marshall family
-tree.getDescendent(79).addChild(TREE.create("Taj"));
+tree.getDescendent(79).addChild(TREE.create("Thomas"));
 tree.getDescendent(79).addChild(TREE.create("Tariq"));
 tree.getDescendent(79).addChild(TREE.create("Taiquon"));
 
