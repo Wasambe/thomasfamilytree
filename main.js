@@ -779,11 +779,12 @@ tree.getDescendent(112).addChild(TREE.create("Elizabeth"));
 
 //Cedrick (Kim's grandson) family
 tree.getDescendent(134).addChild(TREE.create("Kellan"));
-tree.getDescendent(134).addChild(TREE.create("Khalia"));
+tree.getDescendent(134).addChild(TREE.create("Kayliah"));
 
 
 //Ananda (Kim's granddaughter) family
 tree.getDescendent(135).addChild(TREE.create("Kynlee"));
+
 
 //Wayneman (Sabrina Lulu's son) family
 tree.getDescendent(69).addChild(TREE.create("Cameron"));
@@ -799,6 +800,10 @@ tree.getDescendent(72).addChild(TREE.create("Journey"));
 
 //Brandon Hodge daughter
 tree.getDescendent(112).addChild(TREE.create("Eliyanni"));
+
+//Ananda (Kim's granddaughter) family
+tree.getDescendent(135).addChild(TREE.create("Kiyle"));
+
 }
 
 
