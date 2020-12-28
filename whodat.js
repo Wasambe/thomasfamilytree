@@ -8,7 +8,7 @@ var myArrayRandom = [];
 
 
 //Ori here
-//var pngFiles = JSON.parse(localStorage.getItem("pngFiles"));
+var pngFiles = JSON.parse(localStorage.getItem("pngFiles"));
 
 //03 Dec 2020
 //pngFiles is now set in this HttpRequest

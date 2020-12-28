@@ -701,7 +701,7 @@ tree.getDescendent(61).addChild(TREE.create("Wayne"));
 tree.getDescendent(65).addChild(TREE.create("Constance"));
 
 //Benjamin Footes (Tbaby's son) family
-tree.getDescendent(75).addChild(TREE.create("Daysha"));
+tree.getDescendent(75).addChild(TREE.create("Deja"));
 tree.getDescendent(75).addChild(TREE.create("Benjamin 3rd"));
 
 //Marshall family
