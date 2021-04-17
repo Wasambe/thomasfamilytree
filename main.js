@@ -138,6 +138,7 @@ function initialize() {
     context.canvas.height = document.getElementById("main").offsetHeight;
     populateDummyData(tree);
     nodes = TREE.getNodeList(tree);
+	console.log (nodes);
     TREE.draw(context, tree);
     maintree = tree;
 	
